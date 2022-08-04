@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body>
+
+    <h1>Подтвердите действие по удалению пользователя:</h1>
+
+    <p th:text="${'Пользователь ' + user.getId() + ': ' + user.getName() + ' ' + user.getSurname()
+    + ', ' + user.getAge() + ', ' + user.getEmail() + '.'}">value</p>
+
+    <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+        <input type="submit" value="Подтвердить удаление"/>
+    </form>
+    <br/>
+
+    <a href="/users">Вернуться на главную страницу</a>
+
+</body>
+</html>
